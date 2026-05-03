@@ -32,12 +32,12 @@ The following external tools are recommended for full functionality:
 
 | Tool | Purpose | Install Command |
 |------|---------|-----------------|
-| **eza** | Modern `ls` replacement with icons and git support | `choco install eza` or `winget install eza` |
-| **bat** | Syntax-highlighted `cat` replacement | `choco install bat` or `winget install bat` |
-| **ripgrep (rg)** | Fast text search (for `grep` alias) | `choco install ripgrep` or `winget install ripgrep` |
-| **duf** | Modern `df` replacement for disk usage | `choco install duf` or `winget install duf` |
-| **zoxide** | Smart directory jumping (for `cd` function) | `choco install zoxide` or `winget install zoxide` |
-| **superfile (spf)** | Terminal file manager | `winget install superfile` |
+| **eza** | Modern `ls` replacement with icons and git support | `scoop install eza` |
+| **bat** | Syntax-highlighted `cat` replacement | `scoop install bat` |
+| **ripgrep (rg)** | Fast text search (for `grep` alias) | `scoop install ripgrep` |
+| **duf** | Modern `df` replacement for disk usage | `scoop install duf` |
+| **zoxide** | Smart directory jumping (for `cd` function) | `scoop install zoxide` |
+| **superfile (spf)** | Terminal file manager | `scoop install superfile` |
 
 If a dependency is not installed, the module will show a warning but continue to load.
 
@@ -60,7 +60,7 @@ If a dependency is not installed, the module will show a warning but continue to
 Add this line to your PowerShell profile (`$PROFILE`):
 
 ```powershell
-Import-Module "C:\Users\omaro\Documents\win-posix-layer\WinPosixLayer.psd1"
+Import-Module "C:\path\to\WinPosixLayer.psd1"
 ```
 
 Then reload your profile or restart PowerShell:
@@ -97,6 +97,9 @@ cat file.txt
 # Smart cd - uses zoxide for smart navigation
 cd my-project
 
+# cd without arguments calls zi
+cd
+
 # Create file or update timestamp
 touch newfile.txt
 
@@ -106,7 +109,7 @@ rm file.txt
 # Force remove directory recursively
 rm -rf old-dir
 
-# Quick GitHub clone (defaults to your user)
+# Quick GitHub clone (defaults to omardev29 (you can change it))
 ghclone my-repo
 ghclone otheruser/their-repo
 

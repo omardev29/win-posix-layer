@@ -60,18 +60,28 @@ function rm {
 
             if ($PSCmdlet.ShouldProcess($path, "Enviar a la papelera")) {
                 try {
-                    if ($item -is [System.IO.DirectoryInfo]) {
-                        [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory(
-                            $item.FullName,
-                            [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs,
-                            [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin
-                        )
+                    if ($force) {
+                        # Permanent deletion (no recycle bin)
+                        if ($item -is [System.IO.DirectoryInfo]) {
+                            Remove-Item -Path $item.FullName -Recurse:$recurse -Force -ErrorAction Stop
+                        } else {
+                            Remove-Item -Path $item.FullName -Force -ErrorAction Stop
+                        }
                     } else {
-                        [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile(
-                            $item.FullName,
-                            [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs,
-                            [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin
-                        )
+                        # Send to recycle bin
+                        if ($item -is [System.IO.DirectoryInfo]) {
+                            [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory(
+                                $item.FullName,
+                                [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs,
+                                [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin
+                            )
+                        } else {
+                            [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile(
+                                $item.FullName,
+                                [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs,
+                                [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin
+                            )
+                        }
                     }
                 }
                 catch {
