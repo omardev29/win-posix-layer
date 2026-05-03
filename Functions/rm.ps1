@@ -52,7 +52,7 @@ function rm {
 
             $item = Get-Item $path
 
-            # Opcional: comportamiento más tipo Linux
+            # Optional: more Linux-like behavior
             if ($item -is [System.IO.DirectoryInfo] -and -not $recurse) {
                 Write-Error "No se puede eliminar '$path': es un directorio (usa -r)"
                 continue
@@ -86,7 +86,7 @@ function rm {
                 }
                 catch {
                     if (-not $force) {
-                        Write-Error "Error eliminando: $path"
+                        Write-Error "Error deleting: $path"
                         Write-Error $_
                     }
                 }

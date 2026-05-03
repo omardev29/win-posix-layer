@@ -4,7 +4,7 @@ function ghclone {
         [string]$user = "omardev29"  # github user
     )
 
-    # Si el repo ya tiene "/" asume que pusiste usuario/repo
+    # If repo already contains "/", assumes user/repo format
     if ($repo -match "/") {
         git clone "https://github.com/$repo"
     } else {

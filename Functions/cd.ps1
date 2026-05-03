@@ -16,6 +16,6 @@ function cd {
         return
     }
 
-    # Fallback a zoxide
+    # Fallback to zoxide
     z @args
 }

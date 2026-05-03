@@ -1,5 +1,5 @@
 if (Test-Command bat){
     function cat { bat --paging=never $args }
 } else {
-    Write-Warning "bat no esta instalado, instalalo con choco install bat"
+    Write-Warning "bat is not installed, install it with scoop install bat"
 }
