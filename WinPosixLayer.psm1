@@ -3,20 +3,6 @@
 
 $ModuleRoot = $PSScriptRoot
 
-# Quitar alias de pwsh que interfieren
-Remove-Item Alias:ls -ErrorAction SilentlyContinue
-Remove-Item Alias:cat -ErrorAction SilentlyContinue
-Remove-Item Alias:cd -ErrorAction SilentlyContinue
-Remove-Item Alias:rm -ErrorAction SilentlyContinue
-Remove-Item Alias:find -ErrorAction SilentlyContinue
-
-# ── Basic Aliases ──────────────────────────────────────────
-Set-Alias grep rg -ErrorAction SilentlyContinue
-Set-Alias df duf -ErrorAction SilentlyContinue
-Set-Alias find fd -ErrorAction SilentlyContinue
-Set-Alias poweroff Stop-Computer -ErrorAction SilentlyContinue
-Set-Alias reboot Restart-Computer -ErrorAction SilentlyContinue
-
 # Import helper function first
 . "$ModuleRoot\Functions\Test-Command.ps1"
 
@@ -34,3 +20,17 @@ Set-Alias reboot Restart-Computer -ErrorAction SilentlyContinue
 . "$ModuleRoot\Functions\tail.ps1"
 . "$ModuleRoot\Functions\which.ps1"
 . "$ModuleRoot\Functions\vz.ps1"
+
+# ── Basic Aliases ──────────────────────────────────────────
+Set-Alias grep rg -ErrorAction SilentlyContinue
+Set-Alias df duf -ErrorAction SilentlyContinue
+Set-Alias find fd -ErrorAction SilentlyContinue
+Set-Alias poweroff Stop-Computer -ErrorAction SilentlyContinue
+Set-Alias reboot Restart-Computer -ErrorAction SilentlyContinue
+
+# Quitar alias de pwsh que interfieren (en scope global)
+Remove-Item Alias:ls -ErrorAction SilentlyContinue -Scope Global
+Remove-Item Alias:cat -ErrorAction SilentlyContinue -Scope Global
+Remove-Item Alias:cd -ErrorAction SilentlyContinue -Scope Global
+Remove-Item Alias:rm -ErrorAction SilentlyContinue -Scope Global
+Remove-Item Alias:find -ErrorAction SilentlyContinue -Scope Global
