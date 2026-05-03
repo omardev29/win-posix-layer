@@ -164,4 +164,4 @@ Pull requests are welcome! If you have suggestions for more POSIX commands or im
 
 - The `cd` function requires `zoxide` and `zi` (zoxide interactive) to be installed for full functionality
 - The `rm` function sends files to the recycle bin by default (Linux-style safety)
-- All functions are designed to be as close as possible to their Linux counterparts while respecting Windows conventions
+- All functions are designed to be as close as possible to their Linux counterparts 
