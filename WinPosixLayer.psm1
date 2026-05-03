@@ -8,10 +8,12 @@ Remove-Item Alias:ls -ErrorAction SilentlyContinue
 Remove-Item Alias:cat -ErrorAction SilentlyContinue
 Remove-Item Alias:cd -ErrorAction SilentlyContinue
 Remove-Item Alias:rm -ErrorAction SilentlyContinue
+Remove-Item Alias:find -ErrorAction SilentlyContinue
 
 # ── Basic Aliases ──────────────────────────────────────────
 Set-Alias grep rg -ErrorAction SilentlyContinue
 Set-Alias df duf -ErrorAction SilentlyContinue
+Set-Alias find fd -ErrorAction SilentlyContinue
 Set-Alias poweroff Stop-Computer -ErrorAction SilentlyContinue
 Set-Alias reboot Restart-Computer -ErrorAction SilentlyContinue
 

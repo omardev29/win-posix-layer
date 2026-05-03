@@ -38,6 +38,7 @@ The following external tools are recommended for full functionality:
 | **duf** | Modern `df` replacement for disk usage | `scoop install duf` |
 | **zoxide** | Smart directory jumping (for `cd` function) | `scoop install zoxide` |
 | **superfile (spf)** | Terminal file manager | `scoop install superfile` |
+| **fd** | smart find | `scoop install fd` |
 
 If a dependency is not installed, the module will show a warning but continue to load.
 
